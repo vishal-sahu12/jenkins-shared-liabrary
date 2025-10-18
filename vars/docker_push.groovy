@@ -1,5 +1,9 @@
-def call (String dockerUser,String dockerPass,String ImageName,String Version){
-echo "This is Docker Push Liab"
-sh "docker login -u ${dockerUser} -p ${dockerPass}"  
-sh "docker push ${dockerUser}/${ImageName}:${Version}"
+def call (String ImageName,String Version){
+withCredentials([usernamePassword(
+                    credentialsId:"credential",
+                    usernameVariable:"dockerHubUser", 
+                    passwordVariable:"dockerHubPass"
+                    )]){
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker push ${env.dockerHubUser}/${ImageName}:${Version}"
 }
