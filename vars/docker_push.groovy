@@ -7,3 +7,4 @@ withCredentials([usernamePassword(
                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
                 sh "docker push ${env.dockerHubUser}/${ImageName}:${Version}"
 }
+}
