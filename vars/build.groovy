@@ -1,4 +1,10 @@
-def call (String username,String ImageName,String Version){
+def call (String ImageName,String Version){
 echo "This is Build File"
-sh "docker build -t ${username}/${ImageName}:${Version} ."
+withCredentials([usernamePassword(
+                    credentialsId:"dockerhub",
+                    usernameVariable:"dockerHubUser"
+                    )]){
+                sh "docker build -t ${env.dockerHubUser}/${ImageName}:${Version} ."
+              
+}
 }
