@@ -16,7 +16,7 @@ def call(){
             git commit -m "Updated environment variables"
 
             echo "Pushing to GitHub:"
-            git push https://${gitUser}:${gitPass}@github.com/vishal-sahu12/Wanderlust-Mega-Project.git main
+            git push https://vishal-sahu12:${gitPass}@github.com/vishal-sahu12/Wanderlust-Mega-Project.git main
         '''
     }
 }
