@@ -2,7 +2,8 @@ def call(){
     echo "This is code push file"
     withCredentials([usernamePassword(
                     credentialsId:'Github',
-                   gitToolName: 'Default'
+                    usernameVariable:"gitUser", 
+                    passwordVariable:"gitPass"
                     )]){
                sh '''
                         echo "Checking repository status: "
